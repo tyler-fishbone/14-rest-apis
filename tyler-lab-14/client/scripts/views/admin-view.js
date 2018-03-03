@@ -14,6 +14,7 @@ var app = app || {};
       let token = event.target.passphrase.value;
 
       // COMMENT: Is the token cleared out of local storage? Do you agree or disagree with this structure?
+      // the token is never in local storage, a variable that is supposed to indicate whether the user knew the token is. It really shouldn't be in local storage, because the user could, with a little javascript in the console, set it to true instead and they'd have admin privledges.
       $.get(`${__API_URL__}/api/v1/admin`, {token})
         .then(res => {
           localStorage.token = true;
